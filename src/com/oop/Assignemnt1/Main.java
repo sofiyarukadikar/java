@@ -48,16 +48,18 @@ public class Main {
                     sc.nextLine();
                     name=sc.nextLine();
                     a1=Assignment1.getAccountName(name);
+                    assert a1 != null;
                     a1.getAccountDetails();
+                    do{
                     System.out.println("Select the task you'd like to perform----->");
                     System.out.println("1.withdraw\n"+"2.deposite\n"+"3.delete account\n"+"4.calculate interest\n"+"5.check balance\n"+"6.exit");
                     choice2=sc.nextInt();
-                    while(choice2!=6){switch(choice2){
+                    switch(choice2){
                         case 1:System.out.println("Enter amount to withdraw");
                             a1.withdraw(sc.nextDouble());
                             break;
                         case 2:
-                            System.out.println("Enter amount to withdraw");
+                            System.out.println("Enter amount to deposite");
                             a1.deposite(sc.nextDouble());
                             break;
                         case 3:
@@ -69,8 +71,12 @@ public class Main {
                         case 5:
                             System.out.println("The current amount is:"+a1.getBalance());
                             break;
-                    }}
-
+                    }}while(choice2!=6);
+                    break;
+                case 3:
+                    Assignment1.viewAccounts();
+break;
+                default:System.out.println("invalid task!");
 
 
             }

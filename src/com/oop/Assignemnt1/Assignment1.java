@@ -25,10 +25,19 @@ public static Assignment1 getAccountName(String name){
     }
     return null;
 }
+public static void viewAccounts(){
+    if(ac.isEmpty()){
+        System.out.println("No active accounts!");
+    }
+    for(Assignment1 a:ac){
+        System.out.println(a.id+": Owner:"+a.owenerName+" Account Type: "+a.accountType);
+    }
+}
 public void getAccountDetails(){
-    System.out.println("Owner:"+this.owenerName);
-    System.out.println("Type:"+this.accountType);
-    System.out.println("Balance"+this.balance);
+    if(this!=null){System.out.println("Owner:"+this.owenerName);
+        System.out.println("Type:"+this.accountType);
+        System.out.println("Balance"+this.balance);
+    }
 
 }
 public void withdraw(double amount){
@@ -37,7 +46,7 @@ public void withdraw(double amount){
         return;
     }
     else{
-        this.balance-=balance;
+        this.balance-=amount;
     }
 
 }
@@ -49,6 +58,7 @@ public void withdraw(double amount){
     public void deposite(double amount)
     {
         this.balance+=amount;
+        System.out.println(this.balance);
     }
     public void delete(){
     int val=this.id;
